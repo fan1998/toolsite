@@ -43,17 +43,62 @@ function rgbToHsl(r, g, b) {
   return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
 }
 
+function rgbToHsv(r, g, b) {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const d = max - min;
+  let h = 0;
+  if (d !== 0) {
+    switch (max) {
+      case r:
+        h = ((g - b) / d) % 6;
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      default:
+        h = (r - g) / d + 4;
+    }
+    h *= 60;
+    if (h < 0) h += 360;
+  }
+  const s = max === 0 ? 0 : d / max;
+  const v = max;
+  return { h: Math.round(h), s: Math.round(s * 100), v: Math.round(v * 100) };
+}
+
+function rgbToCmyk(r, g, b) {
+  const rr = r / 255;
+  const gg = g / 255;
+  const bb = b / 255;
+  const k = 1 - Math.max(rr, gg, bb);
+  if (k === 1) return { c: 0, m: 0, y: 0, k: 100 };
+  return {
+    c: Math.round(((1 - rr - k) / (1 - k)) * 100),
+    m: Math.round(((1 - gg - k) / (1 - k)) * 100),
+    y: Math.round(((1 - bb - k) / (1 - k)) * 100),
+    k: Math.round(k * 100),
+  };
+}
+
 export default function ColorConverter() {
   const [color, setColor] = useState("#2563eb");
   const rgb = useMemo(() => hexToRgb(color), [color]);
 
   const hsl = rgb ? rgbToHsl(rgb.r, rgb.g, rgb.b) : null;
+  const hsv = rgb ? rgbToHsv(rgb.r, rgb.g, rgb.b) : null;
+  const cmyk = rgb ? rgbToCmyk(rgb.r, rgb.g, rgb.b) : null;
 
   const values = rgb
     ? [
         { k: "HEX", v: `#${color.replace("#", "").toLowerCase()}` },
         { k: "RGB", v: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})` },
         { k: "HSL", v: `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)` },
+        { k: "HSV", v: `hsv(${hsv.h}, ${hsv.s}%, ${hsv.v}%)` },
+        { k: "CMYK", v: `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)` },
       ]
     : [];
 

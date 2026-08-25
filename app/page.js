@@ -1,5 +1,6 @@
-import { SITE, tools } from "../lib/tools";
+import { SITE, tools, ICONS } from "../lib/tools";
 import ToolGrid from "../components/ToolGrid";
+import SearchHub from "../components/SearchHub";
 
 const hotTools = tools.filter((t) => t.badge === "HOT").slice(0, 6);
 
@@ -72,6 +73,7 @@ export default function Home() {
         <div className="hot-chips">
           {hotTools.map((t) => (
             <a key={t.slug} href={`/tools/${t.slug}`}>
+              <span className="chip-icon">{ICONS[t.slug]}</span>
               {t.title.replace("工具", "").replace("在线", "")}
             </a>
           ))}
@@ -81,6 +83,7 @@ export default function Home() {
       <ToolGrid
         items={tools.map((t) => ({
           slug: t.slug,
+          icon: ICONS[t.slug],
           title: t.title,
           description: t.description,
           category: t.category,
@@ -88,6 +91,8 @@ export default function Home() {
           keywords: t.keywords,
         }))}
       />
+
+      <SearchHub />
 
       <section className="features">
         <h2>为什么选择{SITE.name}</h2>

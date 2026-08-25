@@ -105,6 +105,7 @@ export default function ToolGrid({ items }) {
             >
               ★
             </button>
+            {t.icon && <div className="card-icon">{t.icon}</div>}
             <div className="card-head">
               <h2>{t.title}</h2>
               {t.badge && <span className={`badge ${t.badge === "NEW" ? "badge-new" : ""}`}>{t.badge}</span>}

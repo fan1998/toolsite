@@ -892,3 +892,134 @@ button:hover:not(:disabled),
   text-align: center;
   font-size: 12.5px;
 }
+
+.card-icon {
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.chip-icon {
+  margin-right: 4px;
+}
+
+.search-hub {
+  margin: 40px 0;
+}
+
+.search-hub h2 {
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+.search-hub-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.engine-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.engine-tab {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.engine-tab.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.search-hub-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-hub-row input {
+  flex: 1;
+}
+
+.search-hub-row button {
+  white-space: nowrap;
+}
+
+.res-groups {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.res-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.res-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.res-grid a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: var(--text);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.res-grid a:hover {
+  border-color: rgba(79, 110, 247, 0.4);
+  color: var(--primary);
+}
+
+.res-icon {
+  font-size: 15px;
+}
+
+.ascii-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ascii-table th,
+.ascii-table td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.ascii-table th {
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+}
+
+.ascii-table .ascii-char {
+  font-family: ui-monospace, Consolas, monospace;
+  font-weight: 700;
+  font-size: 15px;
+}

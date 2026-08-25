@@ -47,6 +47,14 @@ import DateDiff from "../../../tools/DateDiff";
 import RandomNumber from "../../../tools/RandomNumber";
 import AmountUpper from "../../../tools/AmountUpper";
 import Mortgage from "../../../tools/Mortgage";
+import JsonEscape from "../../../tools/JsonEscape";
+import CountdownTimer from "../../../tools/CountdownTimer";
+import Stopwatch from "../../../tools/Stopwatch";
+import StorageConverter from "../../../tools/StorageConverter";
+import CompoundInterest from "../../../tools/CompoundInterest";
+import PlaceholderImage from "../../../tools/PlaceholderImage";
+import RandomString from "../../../tools/RandomString";
+import AsciiTable from "../../../tools/AsciiTable";
 
 const registry = {
   JsonFormat,
@@ -95,6 +103,14 @@ const registry = {
   RandomNumber,
   AmountUpper,
   Mortgage,
+  JsonEscape,
+  CountdownTimer,
+  Stopwatch,
+  StorageConverter,
+  CompoundInterest,
+  PlaceholderImage,
+  RandomString,
+  AsciiTable,
 };
 
 export function generateStaticParams() {
