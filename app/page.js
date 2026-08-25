@@ -1,20 +1,40 @@
 import { SITE, tools } from "../lib/tools";
+import ToolGrid from "../components/ToolGrid";
+
+const hotTools = tools.filter((t) => t.badge === "HOT").slice(0, 6);
 
 export default function Home() {
   return (
     <>
       <section className="hero">
-        <h1>{SITE.name}</h1>
+        <div className="hero-badges">
+          <span>{tools.length} 款工具</span>
+          <span>浏览器端运行</span>
+          <span>免费无需注册</span>
+        </div>
+        <h1>
+          实用工具，让工作
+          <span className="gradient-text">更高效</span>
+        </h1>
         <p>{SITE.slogan}</p>
+        <div className="hot-chips">
+          {hotTools.map((t) => (
+            <a key={t.slug} href={`/tools/${t.slug}`}>
+              {t.title.replace("工具", "").replace("在线", "")}
+            </a>
+          ))}
+        </div>
       </section>
-      <section className="tool-grid">
-        {tools.map((t) => (
-          <a key={t.slug} className="tool-card" href={`/tools/${t.slug}`}>
-            <h2>{t.title}</h2>
-            <p>{t.description.slice(0, 60)}…</p>
-          </a>
-        ))}
-      </section>
+      <ToolGrid
+        items={tools.map((t) => ({
+          slug: t.slug,
+          title: t.title,
+          description: t.description,
+          category: t.category,
+          badge: t.badge,
+          keywords: t.keywords,
+        }))}
+      />
     </>
   );
 }
