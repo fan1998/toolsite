@@ -17,6 +17,36 @@ import CaseConvert from "../../../tools/CaseConvert";
 import TextSort from "../../../tools/TextSort";
 import TextReplace from "../../../tools/TextReplace";
 import BmiCalculator from "../../../tools/BmiCalculator";
+import HtmlEntity from "../../../tools/HtmlEntity";
+import ImageBase64 from "../../../tools/ImageBase64";
+import JwtDecode from "../../../tools/JwtDecode";
+import UnicodeConvert from "../../../tools/UnicodeConvert";
+import MorseCode from "../../../tools/MorseCode";
+import RegexTester from "../../../tools/RegexTester";
+import HttpStatus from "../../../tools/HttpStatus";
+import LoremGenerator from "../../../tools/LoremGenerator";
+import SlugGenerator from "../../../tools/SlugGenerator";
+import HashGenerator from "../../../tools/HashGenerator";
+import TextEncrypt from "../../../tools/TextEncrypt";
+import TextCleaner from "../../../tools/TextCleaner";
+import LinePrefix from "../../../tools/LinePrefix";
+import TextDiff from "../../../tools/TextDiff";
+import RandomPicker from "../../../tools/RandomPicker";
+import ImageCompressor from "../../../tools/ImageCompressor";
+import ImageResize from "../../../tools/ImageResize";
+import ImageFormat from "../../../tools/ImageFormat";
+import FaviconGenerator from "../../../tools/FaviconGenerator";
+import ColorPalette from "../../../tools/ColorPalette";
+import BoxShadow from "../../../tools/BoxShadow";
+import BorderRadius from "../../../tools/BorderRadius";
+import CssGradient from "../../../tools/CssGradient";
+import Calculator from "../../../tools/Calculator";
+import UnitConverter from "../../../tools/UnitConverter";
+import AgeCalculator from "../../../tools/AgeCalculator";
+import DateDiff from "../../../tools/DateDiff";
+import RandomNumber from "../../../tools/RandomNumber";
+import AmountUpper from "../../../tools/AmountUpper";
+import Mortgage from "../../../tools/Mortgage";
 
 const registry = {
   JsonFormat,
@@ -35,6 +65,36 @@ const registry = {
   TextSort,
   TextReplace,
   BmiCalculator,
+  HtmlEntity,
+  ImageBase64,
+  JwtDecode,
+  UnicodeConvert,
+  MorseCode,
+  RegexTester,
+  HttpStatus,
+  LoremGenerator,
+  SlugGenerator,
+  HashGenerator,
+  TextEncrypt,
+  TextCleaner,
+  LinePrefix,
+  TextDiff,
+  RandomPicker,
+  ImageCompressor,
+  ImageResize,
+  ImageFormat,
+  FaviconGenerator,
+  ColorPalette,
+  BoxShadow,
+  BorderRadius,
+  CssGradient,
+  Calculator,
+  UnitConverter,
+  AgeCalculator,
+  DateDiff,
+  RandomNumber,
+  AmountUpper,
+  Mortgage,
 };
 
 export function generateStaticParams() {
