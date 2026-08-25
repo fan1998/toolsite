@@ -11,6 +11,12 @@ import UrlCodec from "../../../tools/UrlCodec";
 import UuidGenerator from "../../../tools/UuidGenerator";
 import TextDedup from "../../../tools/TextDedup";
 import WordCounter from "../../../tools/WordCounter";
+import PasswordGenerator from "../../../tools/PasswordGenerator";
+import NumberBase from "../../../tools/NumberBase";
+import CaseConvert from "../../../tools/CaseConvert";
+import TextSort from "../../../tools/TextSort";
+import TextReplace from "../../../tools/TextReplace";
+import BmiCalculator from "../../../tools/BmiCalculator";
 
 const registry = {
   JsonFormat,
@@ -23,6 +29,12 @@ const registry = {
   UuidGenerator,
   TextDedup,
   WordCounter,
+  PasswordGenerator,
+  NumberBase,
+  CaseConvert,
+  TextSort,
+  TextReplace,
+  BmiCalculator,
 };
 
 export function generateStaticParams() {

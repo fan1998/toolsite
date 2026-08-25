@@ -23,11 +23,13 @@ export default function RootLayout({ children }) {
               {SITE.name}
             </a>
             <nav className="nav">
-              {tools.map((t) => (
-                <a key={t.slug} href={`/tools/${t.slug}`}>
-                  {t.title.replace("工具", "").replace("在线", "")}
-                </a>
-              ))}
+              {tools
+                .filter((t) => t.badge === "HOT")
+                .map((t) => (
+                  <a key={t.slug} href={`/tools/${t.slug}`}>
+                    {t.title.replace("工具", "").replace("在线", "").replace("生成器", "")}
+                  </a>
+                ))}
             </nav>
           </div>
         </header>

@@ -2,12 +2,16 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+const FAV_KEY = "fav_tools";
+
 export default function ToolGrid({ items }) {
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState("全部");
+  const [favs, setFavs] = useState([]);
   const searchRef = useRef(null);
 
   useEffect(() => {
+    setFavs(JSON.parse(localStorage.getItem(FAV_KEY) || "[]"));
     const onKey = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();
@@ -18,22 +22,39 @@ export default function ToolGrid({ items }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  const toggleFav = (e, slug) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setFavs((prev) => {
+      const next = prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug];
+      localStorage.setItem(FAV_KEY, JSON.stringify(next));
+      return next;
+    });
+  };
+
   const cats = useMemo(() => {
     const set = new Set(items.map((t) => t.category));
-    return ["全部", ...Array.from(set)];
-  }, [items]);
+    const list = ["全部", ...Array.from(set)];
+    if (favs.length > 0) list.splice(1, 0, "收藏");
+    return list;
+  }, [items, favs]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return items.filter((t) => {
-      const inCat = activeCat === "全部" || t.category === activeCat;
+      const inCat =
+        activeCat === "全部"
+          ? true
+          : activeCat === "收藏"
+          ? favs.includes(t.slug)
+          : t.category === activeCat;
       const inQuery =
         !q ||
         t.title.toLowerCase().includes(q) ||
         t.keywords.some((k) => k.toLowerCase().includes(q));
       return inCat && inQuery;
     });
-  }, [items, query, activeCat]);
+  }, [items, query, activeCat, favs]);
 
   return (
     <section className="grid-section">
@@ -59,9 +80,13 @@ export default function ToolGrid({ items }) {
               className={`cat-tab ${activeCat === c ? "active" : ""}`}
               onClick={() => setActiveCat(c)}
             >
-              {c}
+              {c === "收藏" ? "★ 收藏" : c}
               <span className="cat-count">
-                {c === "全部" ? items.length : items.filter((t) => t.category === c).length}
+                {c === "全部"
+                  ? items.length
+                  : c === "收藏"
+                  ? favs.length
+                  : items.filter((t) => t.category === c).length}
               </span>
             </button>
           ))}
@@ -71,6 +96,13 @@ export default function ToolGrid({ items }) {
       <div className="tool-grid">
         {filtered.map((t) => (
           <a key={t.slug} className="tool-card" href={`/tools/${t.slug}`}>
+            <button
+              className={`fav-btn ${favs.includes(t.slug) ? "faved" : ""}`}
+              aria-label="收藏"
+              onClick={(e) => toggleFav(e, t.slug)}
+            >
+              ★
+            </button>
             <div className="card-head">
               <h2>{t.title}</h2>
               {t.badge && <span className={`badge ${t.badge === "NEW" ? "badge-new" : ""}`}>{t.badge}</span>}

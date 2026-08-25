@@ -264,6 +264,93 @@ body {
   position: relative;
 }
 
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #d1d5db;
+  font-size: 16px;
+  padding: 4px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s, transform 0.15s;
+}
+
+.fav-btn:hover {
+  color: #f59e0b;
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.fav-btn.faved {
+  color: #f59e0b;
+}
+
+.features {
+  padding: 24px 0 8px;
+}
+
+.features h2,
+.seo-text h2 {
+  text-align: center;
+  font-size: 26px;
+  margin: 0 0 24px;
+  letter-spacing: -0.3px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: all 0.18s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.feature-card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.seo-text {
+  padding: 40px 0 8px;
+}
+
+.seo-text p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 0;
+}
+
 .tool-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-3px);
