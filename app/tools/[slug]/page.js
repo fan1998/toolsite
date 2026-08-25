@@ -6,6 +6,11 @@ import TimestampConverter from "../../../tools/TimestampConverter";
 import ColorConverter from "../../../tools/ColorConverter";
 import MarkdownEditor from "../../../tools/MarkdownEditor";
 import QrCodeGenerator from "../../../tools/QrCodeGenerator";
+import Base64Tool from "../../../tools/Base64Tool";
+import UrlCodec from "../../../tools/UrlCodec";
+import UuidGenerator from "../../../tools/UuidGenerator";
+import TextDedup from "../../../tools/TextDedup";
+import WordCounter from "../../../tools/WordCounter";
 
 const registry = {
   JsonFormat,
@@ -13,6 +18,11 @@ const registry = {
   ColorConverter,
   MarkdownEditor,
   QrCodeGenerator,
+  Base64Tool,
+  UrlCodec,
+  UuidGenerator,
+  TextDedup,
+  WordCounter,
 };
 
 export function generateStaticParams() {
