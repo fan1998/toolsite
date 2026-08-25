@@ -12,6 +12,8 @@ export default function ToolGrid({ items }) {
 
   useEffect(() => {
     setFavs(JSON.parse(localStorage.getItem(FAV_KEY) || "[]"));
+    const cat = new URLSearchParams(window.location.search).get("cat");
+    if (cat && items.some((t) => t.category === cat)) setActiveCat(cat);
     const onKey = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();

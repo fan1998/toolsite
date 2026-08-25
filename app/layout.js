@@ -1,5 +1,6 @@
 import "./globals.css";
 import { SITE, tools } from "../lib/tools";
+import { posts } from "../lib/posts";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -37,18 +38,48 @@ export default function RootLayout({ children }) {
         <main className="container">{children}</main>
         <footer className="site-footer">
           <div className="container">
-            <p>{SITE.name} · 所有工具均在浏览器本地运行，不上传任何数据</p>
-            <p>
-              {tools.map((t, i) => (
-                <span key={t.slug}>
-                  {i > 0 && " · "}
-                  <a href={`/tools/${t.slug}`}>{t.title}</a>
-                </span>
-              ))}
-            </p>
-            <p>
-              <a href="/blog">技术教程</a>
-            </p>
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <p className="footer-logo">{SITE.name}</p>
+                <p className="footer-desc">{SITE.slogan}</p>
+              </div>
+              <div>
+                <p className="footer-title">热门工具</p>
+                {tools
+                  .filter((t) => t.badge === "HOT")
+                  .slice(0, 6)
+                  .map((t) => (
+                    <a key={t.slug} href={`/tools/${t.slug}`}>
+                      {t.title}
+                    </a>
+                  ))}
+              </div>
+              <div>
+                <p className="footer-title">全部分类</p>
+                {[...new Set(tools.map((t) => t.category))].map((c) => (
+                  <a key={c} href={`/?cat=${encodeURIComponent(c)}`}>
+                    {c}
+                  </a>
+                ))}
+              </div>
+              <div>
+                <p className="footer-title">最新教程</p>
+                {[...posts]
+                  .slice(-4)
+                  .reverse()
+                  .map((p) => (
+                    <a key={p.slug} href={`/blog/${p.slug}`}>
+                      {p.title.length > 18 ? p.title.slice(0, 18) + "…" : p.title}
+                    </a>
+                  ))}
+                <a href="/blog">全部教程 →</a>
+              </div>
+            </div>
+            <div className="footer-bottom">
+              <span>
+                © {new Date().getFullYear()} {SITE.name} · 所有工具均在浏览器本地运行，不上传任何数据
+              </span>
+            </div>
           </div>
         </footer>
       </body>
