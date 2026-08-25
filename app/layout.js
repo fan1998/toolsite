@@ -1,0 +1,48 @@
+import "./globals.css";
+import { SITE, tools } from "../lib/tools";
+
+export const metadata = {
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: `${SITE.name} - ${SITE.slogan}`,
+    template: `%s - ${SITE.name}`,
+  },
+  description: SITE.slogan,
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="zh-CN">
+      <body>
+        <header className="site-header">
+          <div className="container header-inner">
+            <a href="/" className="logo">
+              {SITE.name}
+            </a>
+            <nav className="nav">
+              {tools.map((t) => (
+                <a key={t.slug} href={`/tools/${t.slug}`}>
+                  {t.title.replace("工具", "").replace("在线", "")}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </header>
+        <main className="container">{children}</main>
+        <footer className="site-footer">
+          <div className="container">
+            <p>{SITE.name} · 所有工具均在浏览器本地运行，不上传任何数据</p>
+            <p>
+              {tools.map((t, i) => (
+                <span key={t.slug}>
+                  {i > 0 && " · "}
+                  <a href={`/tools/${t.slug}`}>{t.title}</a>
+                </span>
+              ))}
+            </p>
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
