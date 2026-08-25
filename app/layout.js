@@ -8,6 +8,9 @@ export const metadata = {
     template: `%s - ${SITE.name}`,
   },
   description: SITE.slogan,
+  verification: {
+    google: "vHCc-8w154O8Tes98Uda6-K1I80SnIixpK6spRhNSyg",
+  },
 };
 
 export default function RootLayout({ children }) {
