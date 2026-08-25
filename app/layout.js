@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
                     {t.title.replace("工具", "").replace("在线", "").replace("生成器", "")}
                   </a>
                 ))}
+              <a href="/blog">教程</a>
             </nav>
           </div>
         </header>
@@ -44,6 +45,9 @@ export default function RootLayout({ children }) {
                   <a href={`/tools/${t.slug}`}>{t.title}</a>
                 </span>
               ))}
+            </p>
+            <p>
+              <a href="/blog">技术教程</a>
             </p>
           </div>
         </footer>
