@@ -55,6 +55,18 @@ import CompoundInterest from "../../../tools/CompoundInterest";
 import PlaceholderImage from "../../../tools/PlaceholderImage";
 import RandomString from "../../../tools/RandomString";
 import AsciiTable from "../../../tools/AsciiTable";
+import PdfMerge from "../../../tools/PdfMerge";
+import PdfExtract from "../../../tools/PdfExtract";
+import PdfDelete from "../../../tools/PdfDelete";
+import PdfReorder from "../../../tools/PdfReorder";
+import PdfRotate from "../../../tools/PdfRotate";
+import PdfEncrypt from "../../../tools/PdfEncrypt";
+import PdfDecrypt from "../../../tools/PdfDecrypt";
+import PdfMetadata from "../../../tools/PdfMetadata";
+import PdfCrop from "../../../tools/PdfCrop";
+import ImageToPdf from "../../../tools/ImageToPdf";
+import PdfWatermark from "../../../tools/PdfWatermark";
+import PdfPageNumbers from "../../../tools/PdfPageNumbers";
 
 const registry = {
   JsonFormat,
@@ -111,6 +123,18 @@ const registry = {
   PlaceholderImage,
   RandomString,
   AsciiTable,
+  PdfMerge,
+  PdfExtract,
+  PdfDelete,
+  PdfReorder,
+  PdfRotate,
+  PdfEncrypt,
+  PdfDecrypt,
+  PdfMetadata,
+  PdfCrop,
+  ImageToPdf,
+  PdfWatermark,
+  PdfPageNumbers,
 };
 
 export function generateStaticParams() {
