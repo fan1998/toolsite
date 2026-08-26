@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument } from "@cantoo/pdf-lib";
 import { readFileBytes, downloadBytes, parseRanges, fmtBytes } from "../lib/pdf-utils";
 
 export default function PdfDelete() {

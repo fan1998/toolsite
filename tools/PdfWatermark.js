@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument, StandardFonts, rgb, degrees } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb, degrees } from "@cantoo/pdf-lib";
 import { readFileBytes, downloadBytes, fmtBytes } from "../lib/pdf-utils";
 
 export default function PdfWatermark() {

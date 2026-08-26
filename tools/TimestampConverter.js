@@ -17,13 +17,15 @@ function tsToDate(tsMs) {
 }
 
 export default function TimestampConverter() {
-  const [now, setNow] = useState(Date.now());
+  // SSR-safe: start empty, fill on client so server HTML matches first render
+  const [now, setNow] = useState(null);
   const [tsInput, setTsInput] = useState("");
   const [dateInput, setDateInput] = useState("");
   const [result, setResult] = useState(null);
   const [revResult, setRevResult] = useState(null);
 
   useEffect(() => {
+    setNow(Date.now());
     const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -54,7 +56,7 @@ export default function TimestampConverter() {
     <div>
       <div className="panel">
         <p className="intro">
-          当前时间戳（毫秒）：<strong>{now}</strong>
+          当前时间戳（毫秒）：<strong>{now ?? "…"}</strong>
           <button
             className="secondary"
             style={{ marginLeft: 10 }}

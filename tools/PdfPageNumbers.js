@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, StandardFonts, rgb } from "@cantoo/pdf-lib";
 import { readFileBytes, downloadBytes, fmtBytes } from "../lib/pdf-utils";
 
 export default function PdfPageNumbers() {

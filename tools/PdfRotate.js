@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PDFDocument, degrees } from "pdf-lib";
+import { PDFDocument, degrees } from "@cantoo/pdf-lib";
 import { readFileBytes, downloadBytes, parseRanges, fmtBytes } from "../lib/pdf-utils";
 
 export default function PdfRotate() {
