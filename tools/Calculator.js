@@ -20,6 +20,7 @@ export default function Calculator() {
   };
 
   const calc = () => {
+    if (!expr.trim()) return;
     try {
       const safe = expr.replace(/×/g, "*").replace(/÷/g, "/");
       if (!/^[0-9+\-*/().%\s]+$/.test(safe)) throw new Error();
@@ -31,10 +32,30 @@ export default function Calculator() {
     }
   };
 
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      calc();
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      setExpr("");
+      setResult("");
+    } else if (e.key === "=" ) {
+      e.preventDefault();
+      calc();
+    }
+  };
+
   return (
     <div className="panel" style={{ maxWidth: 360, margin: "16px auto" }}>
-      <input type="text" value={expr} onChange={(e) => setExpr(e.target.value)} placeholder="0" style={{ fontSize: 20, textAlign: "right" }} />
-      <div style={{ fontSize: 22, fontWeight: 700, textAlign: "right", padding: "8px 4px", minHeight: 34, color: "var(--primary)" }}>{result}</div>
+      <input type="text" value={expr} onChange={(e) => setExpr(e.target.value)} onKeyDown={onKeyDown} placeholder="0（回车=计算，Esc=清空）" style={{ fontSize: 20, textAlign: "right" }} />
+      <div
+        style={{ fontSize: 22, fontWeight: 700, textAlign: "right", padding: "8px 4px", minHeight: 34, color: "var(--primary)" }}
+        onClick={() => navigator.clipboard?.writeText(result)}
+        title="点击复制结果"
+      >
+        {result}
+      </div>
       {KEYS.map((row, i) => (
         <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
           {row.map((k) => (
