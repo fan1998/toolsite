@@ -70,6 +70,16 @@ const loaders = {
   ImageToPdf: () => import("../tools/ImageToPdf"),
   PdfWatermark: () => import("../tools/PdfWatermark"),
   PdfPageNumbers: () => import("../tools/PdfPageNumbers"),
+  IdCardValidate: () => import("../tools/IdCardValidate"),
+  PercentageCalc: () => import("../tools/PercentageCalc"),
+  WorkdayCalc: () => import("../tools/WorkdayCalc"),
+  TaxCalculator: () => import("../tools/TaxCalculator"),
+  UrlParser: () => import("../tools/UrlParser"),
+  CronParser: () => import("../tools/CronParser"),
+  CsvJson: () => import("../tools/CsvJson"),
+  HtmlRunner: () => import("../tools/HtmlRunner"),
+  CssFormatter: () => import("../tools/CssFormatter"),
+  EmojiPicker: () => import("../tools/EmojiPicker"),
 };
 
 const registry = Object.fromEntries(
