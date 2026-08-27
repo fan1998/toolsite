@@ -70,9 +70,17 @@ body {
   gap: 4px;
   overflow-x: auto;
   min-width: 0;
-  justify-content: flex-end;
+  justify-content: flex-start;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  flex: 1;
+}
+
+/* 宽屏下保持右对齐；溢出时回退为起点对齐避免内容被裁进不可滚动区 */
+@media (min-width: 900px) {
+  .nav {
+    justify-content: flex-end;
+  }
 }
 
 .nav::-webkit-scrollbar {
