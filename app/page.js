@@ -4,6 +4,32 @@ import SearchHub from "../components/SearchHub";
 
 const hotTools = tools.filter((t) => t.badge === "HOT").slice(0, 6);
 
+export const metadata = {
+  title:
+    "免费在线工具大全 - JSON格式化、时间戳、二维码、PDF、图片处理，浏览器本地运行",
+  description:
+    "凡间工具箱提供76款免费在线工具：JSON格式化与校验、Unix时间戳转换、二维码生成器、Base64编解码、正则表达式测试、图片压缩、PDF合并、身份证校验、个人所得税计算等。所有工具均在浏览器本地运行，数据不上传、无需注册。",
+  keywords: [
+    "在线工具",
+    "免费工具",
+    "JSON格式化",
+    "时间戳转换",
+    "二维码生成器",
+    "图片压缩",
+    "PDF合并",
+    "身份证校验",
+    "个税计算器",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${SITE.name} - 免费在线工具，浏览器本地运行，数据不上传`,
+    description: "76款免费在线工具，纯本地处理，数据不出你的浏览器。JSON、时间戳、二维码、PDF、图片工具齐全。",
+    url: SITE.url,
+    type: "website",
+    siteName: SITE.name,
+  },
+};
+
 const features = [
   {
     title: "隐私优先",
@@ -55,6 +81,14 @@ export default function Home() {
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
+  };
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.url,
+    description: SITE.slogan,
+    inLanguage: "zh-CN",
   };
 
   return (
@@ -133,6 +167,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
       />
     </>
   );
