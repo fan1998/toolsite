@@ -11,6 +11,9 @@ export const metadata = {
   description: SITE.slogan,
   verification: {
     google: "vHCc-8w154O8Tes98Uda6-K1I80SnIixpK6spRhNSyg",
+    other: {
+      "baidu-site-verification": "codeva-I4yjIHoTnV",
+    },
   },
 };
 
