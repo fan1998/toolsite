@@ -1,0 +1,263 @@
+/* 定制开发服务页样式 - 复用 globals.css 设计变量 */
+
+.services-hero {
+  padding: 56px 0 32px;
+  text-align: center;
+}
+
+.services-hero h1 {
+  font-size: 2.2rem;
+  margin: 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.services-hero .sub {
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.services-hero .pill-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.services-hero .pill {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.svc-section {
+  margin: 40px 0;
+}
+
+.svc-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.svc-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.svc-card .icon {
+  font-size: 28px;
+}
+
+.svc-card h3 {
+  margin: 10px 0 6px;
+  font-size: 1.05rem;
+}
+
+.svc-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.svc-card .price {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(79, 110, 247, 0.08);
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.case-card .case-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.case-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.case-card .tag {
+  font-size: 0.78rem;
+  color: var(--primary);
+  background: rgba(79, 110, 247, 0.08);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+.case-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 10px 0 0;
+}
+
+.case-card .stack {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.case-card .case-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.case-card .case-link:hover {
+  text-decoration: underline;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  counter-reset: step;
+}
+
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.step .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  font-size: 0.9rem;
+}
+
+.price-table th,
+.price-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.price-table th {
+  background: rgba(79, 110, 247, 0.05);
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.price-table tr:last-child td {
+  border-bottom: none;
+}
+
+.price-table .price-col {
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.cta-box {
+  background: linear-gradient(135deg, rgba(79, 110, 247, 0.08), rgba(124, 58, 237, 0.08));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  margin: 48px 0 24px;
+}
+
+.cta-box h2 {
+  margin: 0 0 8px;
+}
+
+.cta-box p {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+.cta-box .cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-box .cta-btn:hover {
+  opacity: 0.92;
+}
+
+.cta-note {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

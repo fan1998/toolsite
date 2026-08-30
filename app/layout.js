@@ -35,6 +35,7 @@ export default function RootLayout({ children }) {
                   </a>
                 ))}
               <a href="/blog">教程</a>
+              <a href="/services">定制服务</a>
             </nav>
           </div>
         </header>
@@ -76,6 +77,10 @@ export default function RootLayout({ children }) {
                     </a>
                   ))}
                 <a href="/blog">全部教程 →</a>
+              </div>
+              <div>
+                <p className="footer-title">合作</p>
+                <a href="/services">定制开发服务 →</a>
               </div>
             </div>
             <div className="footer-bottom">
