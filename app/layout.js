@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
               {SITE.name}
             </a>
             <nav className="nav">
+              <a href="/play">小游戏</a>
               <a href="/blog">教程</a>
               <a href="/en" lang="en">English</a>
               <a href="/services">定制服务</a>
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
               </div>
               <div>
                 <p className="footer-title">本站</p>
+                <a href="/play">小游戏合集 →</a>
                 <a href="/en" lang="en">English tools →</a>
                 <a href="/about">关于本站</a>
                 <a href="/contact">联系方式</a>

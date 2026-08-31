@@ -7,6 +7,7 @@ export default function sitemap() {
   return [
     { url: SITE.url, lastModified: now },
     { url: `${SITE.url}/blog`, lastModified: now },
+    { url: `${SITE.url}/play`, lastModified: now },
     { url: `${SITE.url}/en`, lastModified: now },
     { url: `${SITE.url}/about`, lastModified: now },
     { url: `${SITE.url}/contact`, lastModified: now },
