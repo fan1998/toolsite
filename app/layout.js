@@ -1,6 +1,9 @@
 import "./globals.css";
 import { SITE, tools } from "../lib/tools";
 import { posts } from "../lib/posts";
+import { AdScript } from "../components/AdSlot";
+
+const adsenseClientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID;
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -15,12 +18,16 @@ export const metadata = {
       "baidu-site-verification": "codeva-I4yjIHoTnV",
     },
   },
+  ...(adsenseClientId
+    ? { other: { "google-adsense-account": adsenseClientId } }
+    : {}),
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="zh-CN">
       <body>
+        <AdScript />
         <header className="site-header">
           <div className="container header-inner">
             <a href="/" className="logo">
@@ -30,11 +37,12 @@ export default function RootLayout({ children }) {
               {tools
                 .filter((t) => t.badge === "HOT")
                 .map((t) => (
-                  <a key={t.slug} href={`/tools/${t.slug}`}>
+                  <a className="nav-tool-link" key={t.slug} href={`/tools/${t.slug}`}>
                     {t.title.replace("工具", "").replace("在线", "").replace("生成器", "")}
                   </a>
                 ))}
-              <a href="/blog">教程</a>
+  <a href="/blog">教程</a>
+              <a href="/en" lang="en">English</a>
               <a href="/services">定制服务</a>
             </nav>
           </div>
@@ -79,13 +87,18 @@ export default function RootLayout({ children }) {
                 <a href="/blog">全部教程 →</a>
               </div>
               <div>
-                <p className="footer-title">合作</p>
+                <p className="footer-title">本站</p>
+                <a href="/en" lang="en">English tools →</a>
+                <a href="/about">关于本站</a>
+                <a href="/contact">联系方式</a>
+                <a href="/privacy">隐私政策</a>
+                <a href="/terms">使用条款</a>
                 <a href="/services">定制开发服务 →</a>
               </div>
             </div>
             <div className="footer-bottom">
               <span>
-                © {new Date().getFullYear()} {SITE.name} · 所有工具均在浏览器本地运行，不上传任何数据
+                © {new Date().getFullYear()} {SITE.name} · 工具输入在浏览器本地处理，不作为广告数据上传
               </span>
             </div>
           </div>
