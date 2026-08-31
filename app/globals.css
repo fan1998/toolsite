@@ -70,7 +70,7 @@ body {
   gap: 4px;
   overflow-x: auto;
   min-width: 0;
-  justify-content: flex-start;
+  justify-content: flex-end;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   flex: 1;
@@ -775,12 +775,6 @@ button:hover:not(:disabled),
   .nav {
     width: 100%;
     justify-content: flex-start;
-  }
-  .nav-tool-link {
-    display: none;
-  }
-  .nav-tool-link:nth-of-type(-n + 2) {
-    display: block;
   }
   .nav a {
     padding-inline: 7px;

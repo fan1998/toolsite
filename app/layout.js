@@ -34,14 +34,7 @@ export default function RootLayout({ children }) {
               {SITE.name}
             </a>
             <nav className="nav">
-              {tools
-                .filter((t) => t.badge === "HOT")
-                .map((t) => (
-                  <a className="nav-tool-link" key={t.slug} href={`/tools/${t.slug}`}>
-                    {t.title.replace("工具", "").replace("在线", "").replace("生成器", "")}
-                  </a>
-                ))}
-  <a href="/blog">教程</a>
+              <a href="/blog">教程</a>
               <a href="/en" lang="en">English</a>
               <a href="/services">定制服务</a>
             </nav>
