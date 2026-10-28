@@ -52,7 +52,7 @@ const cases = [
     tag: "在线工具站",
     desc: "76 款免费在线工具（JSON 格式化、时间戳、二维码、PDF、图片处理、正则等），纯浏览器本地计算，数据零上传，SEO 已接入 Google/Bing/百度三大站长平台。",
     stack: "Next.js 14 · React 18 · GitHub + Vercel CI",
-    link: "https://www.fanjian.org",
+    link: "https://www.ibibi.top",
     linkText: "在线体验 →",
   },
   {
