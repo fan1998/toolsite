@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "fanjian.org" }],
+      "destination": "https://www.ibibi.top/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.fanjian.org" }],
+      "destination": "https://www.ibibi.top/:path*",
+      "permanent": true
+    }
+  ]
+}
